@@ -11,13 +11,3 @@ INFO     webdriver_helper.pom:pom.py:284 Page init start : SearchPage
 INFO     webdriver_helper.pom:pom.py:288 Page init done: SearchPage
 INFO     webdriver_helper.pom:pom.py:210 Finding: <LazyElementList (attr='xpath' attr='/html/body/div[5]/div[2]/div[2]/div[1]/div/div[2]/ul/li/div/div[4]/a/em' attr=True attr=5 attr=0.5 )>
 WARNING  webdriver_helper.pom:pom.py:194 Insufficient elements: 0 <= 0
-INFO     webdriver_helper.pom:pom.py:293 Goto start: url='https://www.jd.com/'
-INFO     webdriver_helper.pom:pom.py:302 Goto done
-INFO     webdriver_helper.pom:pom.py:284 Page init start : IndexPage
-INFO     webdriver_helper.pom:pom.py:210 Finding: <LazyElement (attr='xpath' attr='//*[@id="search"]/div/div[2]/button' attr=True attr=5 attr=0.5 )>
-INFO     webdriver_helper.pom:pom.py:210 Finding: <LazyElement (attr='xpath' attr='//*[@id="key"]' attr=True attr=5 attr=0.5 )>
-INFO     webdriver_helper.pom:pom.py:288 Page init done: IndexPage
-INFO     webdriver_helper.pom:pom.py:284 Page init start : SearchPage
-INFO     webdriver_helper.pom:pom.py:288 Page init done: SearchPage
-INFO     webdriver_helper.pom:pom.py:210 Finding: <LazyElementList (attr='xpath' attr='/html/body/div[5]/div[2]/div[2]/div[1]/div/div[2]/ul/li/div/div[4]/a/em' attr=True attr=5 attr=0.5 )>
-WARNING  webdriver_helper.pom:pom.py:194 Insufficient elements: 0 <= 0
