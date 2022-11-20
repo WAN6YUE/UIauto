@@ -1,0 +1,7 @@
+INFO     webdriver_helper.driver:logger.py:11 ====== WebDriver manager ======
+INFO     webdriver_helper.driver:logger.py:11 Get LATEST chromedriver version for google-chrome 101.0.4951
+INFO     webdriver_helper.driver:logger.py:11 Driver [C:\Users\98596\.wdm\drivers\chromedriver\win32\101.0.4951\chromedriver.exe] found in cache
+INFO     webdriver_helper.pom:pom.py:293 Goto start: url='https://www.jd.com/'
+INFO     webdriver_helper.pom:pom.py:302 Goto done
+INFO     webdriver_helper.pom:pom.py:284 Page init start : IndexPage
+INFO     webdriver_helper.pom:pom.py:210 Finding: <LazyElement (attr='xpath' attr='//*[@id="search"]/div/div[2]/button' attr=True attr=5 attr=0.5 )>
