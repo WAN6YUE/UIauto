@@ -6,4 +6,3 @@ if __name__ == "__main__":
     pytest.main()
     os.system("allure serve ./temp/my_allure_results")
 
-g

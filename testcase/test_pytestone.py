@@ -4,6 +4,7 @@
 # 3.创建测试用例
 # 4.执行测试用例
 # 5.标准启动方式   终端命令->pytest
+import pytest
 
 #  . 通过
 #  F 失败
@@ -41,37 +42,42 @@
 # POM (page object module) 实现对页面的封装   页面对象模型
 # POM通过面向对象的思想 封装页面中的元素，以及在页面中经行自动化操作
 
+
+# 参数化测试 +数据文件 =数据驱动测试
+
 from core.pages import *
+from core.ddt import read_csv
 
 
 class TestJd:  # 类需要Test开头
-    def test_zhengxiang(self, driver):  # 正向用例 函数需要test_开头
+    @pytest.mark.parametrize("data",read_csv(r'datas/search.csv'))
+    def test_zhengxiang(self, driver,data):  # 正向用例 函数需要test_开头
         # driver.get('https://www.jd.com/')#打开被测网页
         # page =IndexPage(driver)#利用IndexPage 实例化po
         page = IndexPage.start(driver)  # 代表自动跳转到被测页面 并实例化po 代表上面两行
-        page = page.search('苹果手机')  # 调用IndexPage方法search 传入苹果手机  --自动化操作 返回值可以实例化下一个po
+        page = page.search(data['wd'])  # 调用IndexPage方法search 传入苹果手机  --自动化操作 返回值可以实例化下一个po
 
         # page=SearchPage(driver)#因为跳转了页面 需要实例化新的po
         text_list = page.get_all_text()  # 使用SearchPage返回文本-执行自动化操作
         print(len(text_list))
-        assert len(text_list) == 30 or len(text_list) > 25  # 断言结束数据的len
+        assert str(len(text_list)) == data['count']  # 断言结束数据的len
 
         for i in text_list:
-            assert 'apple' in i or 'Apple' in i or '苹果' in i  # 断言结果数据的文本
+            assert data['assert'] in i  # 断言结果数据的文本
 
-    def test_fanxiang(self, driver):  # 反向用例 函数需要test_开头
-        # driver.get('https://www.jd.com/')  # 打开被测网页
-        # page = IndexPage(driver)  # 利用IndexPage 实例化po
-
-        page = IndexPage.start(driver)  # 代表自动跳转到被测页面 并实例化po 代表上面两行
-        page = page.search('巴拉巴拉')  # 调用IndexPage方法search 传入苹果手机  --自动化操作
-
-        # page = SearchPage(driver)  # 因为跳转了页面 需要实例化新的po
-        text_list = page.get_all_text()  # 使用SearchPage返回文本-执行自动化操作
-        print(len(text_list))
-        assert len(text_list) != 0  # 断言结束数据的len
-
-        for i in text_list:
-            assert 'apple' not in i or 'Apple' not in i or '苹果' not in i  # 断言结果数据的文本
+    # def test_fanxiang(self, driver):  # 反向用例 函数需要test_开头
+    #     # driver.get('https://www.jd.com/')  # 打开被测网页
+    #     # page = IndexPage(driver)  # 利用IndexPage 实例化po
+    #
+    #     page = IndexPage.start(driver)  # 代表自动跳转到被测页面 并实例化po 代表上面两行
+    #     page = page.search('巴拉巴拉')  # 调用IndexPage方法search 传入苹果手机  --自动化操作
+    #
+    #     # page = SearchPage(driver)  # 因为跳转了页面 需要实例化新的po
+    #     text_list = page.get_all_text()  # 使用SearchPage返回文本-执行自动化操作
+    #     print(len(text_list))
+    #     assert len(text_list) != 0  # 断言结束数据的len
+    #
+    #     for i in text_list:
+    #         assert 'apple' not in i or 'Apple' not in i or '苹果' not in i  # 断言结果数据的文本
 
 # 问题 用例执行失败的时候 未关闭浏览器

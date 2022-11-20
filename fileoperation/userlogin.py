@@ -34,11 +34,6 @@ while True:
 
 
 
-
-
-
-
-
 # if username in account and account[username][2]=='1':
 #     passward = input("请输入密码：").strip()
 #     if account[username][1]==passward:
