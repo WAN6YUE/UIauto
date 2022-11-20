@@ -4,6 +4,7 @@
 # 3.创建测试用例
 # 4.执行测试用例
 # 5.标准启动方式   终端命令->pytest
+import allure
 import pytest
 
 #  . 通过
@@ -59,6 +60,7 @@ class TestJd:  # 类需要Test开头
 
         # page=SearchPage(driver)#因为跳转了页面 需要实例化新的po
         text_list = page.get_all_text()  # 使用SearchPage返回文本-执行自动化操作
+        allure.attach(driver.get_screenshot_as_png(),"页面截图")
         print(len(text_list))
         assert str(len(text_list)) == data['count']  # 断言结束数据的len
 
