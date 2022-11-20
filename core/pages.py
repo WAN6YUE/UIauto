@@ -1,5 +1,6 @@
 #创建page类
-
+import os
+import sys
 from webdriver_helper.pom import *
 
 
@@ -24,4 +25,6 @@ class SearchPage(BasePage):#搜索后页面
         for i in self.search_list:
             L.append(i.text)
         return L
+
+
 
